@@ -1,6 +1,6 @@
 # peliculas
 
-A new Flutter project.
+Nuevo Proyecto.
 
 ## Getting Started
 
