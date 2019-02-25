@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ui/movie_list.dart';
+import 'package:peliculas/src/ui/lista_peliculas.dart';
 
 
 
@@ -13,7 +13,7 @@ class App extends StatelessWidget {
     return MaterialApp(
         theme: ThemeData.dark(),
         home: Scaffold(
-          body: MovieList(),
+          body: ListaPeliculas(),
         ),
       );
   }
