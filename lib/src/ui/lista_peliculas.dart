@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart'; 
+import '../models/objeto_modelo.dart';
+import '../blocs/peliculas_bloc.dart';
+
 
 
 
@@ -19,7 +22,17 @@ class _ListaPeliculasState extends State<ListaPeliculas> {
         title: new Text("Peliculas Populares"),
       ),
       body: StreamBuilder(
-        
+        stream: bloc.todasPeliculas,
+        builder: (context, AsyncSnapshot<ObjetoModelo> snapshot){
+          if (snapshot.hasData) {
+            return Text("Hay datis");
+          } else if(snapshot.hasError) {
+            return Text(snapshot.error.toString());
+          }
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        },
       ),
     );
   }
