@@ -10,7 +10,7 @@ class ObjetoModelo{
     _total_resultados =parsedJson['total_results'];
     _total_paginas =parsedJson['total_pages'];
     List<_Resultado> temp = [];
-    for (var i = 0; i < parsedJson['result'].length; i++) {
+    for (var i = 0; i < parsedJson['results'].length; i++) {
       _Resultado resultado = _Resultado(parsedJson['results'][i]);
       temp.add(resultado);
       
@@ -60,6 +60,7 @@ for (var i = 0; i < resultado['genre_ids'].length;  i++) {
 }
 _fondo_directorio =resultado['backdrop_path'];
 _adulto =resultado['adult'];
+_visto_general =resultado['overview'];
 _fecha_realizada =resultado['release_date'];
 
  }

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:http/http.dart';
+import 'package:http/http.dart' show Client;
 import '../models/objeto_modelo.dart';
 
 class PeliculaProveedor {
