@@ -1,4 +1,6 @@
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
+import 'package:peliculas/src/blocs/pelicula_detalle_bloc_proveedor.dart';
+import 'package:peliculas/src/ui/detalles_peliculas.dart'; 
 import '../models/objeto_modelo.dart';
 import '../blocs/peliculas_bloc.dart';
 
@@ -63,9 +65,26 @@ class _ListaPeliculasState extends State<ListaPeliculas> {
                     .resultados[index].directorio_poster}',
                 fit: BoxFit.cover,
               ),
-              onTap: null,
+              onTap: abrirDetallesPagina(snapshot.data, index),
             ),
           );
         });
   }
-}
+  abrirDetallesPagina(ObjetoModelo data, int index){
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) {
+        return PeliculaDetalleBlocProveedor(
+          child: PeliculaDetalles(
+            title: data.resultados[index].titulo,
+            posterUrl: data.resultados[index].fondo_directorio,
+            description: data.resultados[index].visto_general,
+            releaseDate: data.resultados[index].fecha_realizada,
+            voteAverage: data.resultados[index].voto_promedio.toString(),
+            movieId: data.resultados[index].id,
+          ),
+        );
+      }),
+    );
+  }
+  }

@@ -15,7 +15,8 @@ class PeliculaDetallesBloc{
     _peliculaId.stream.transform(_itemTransformer()).pipe(_trailers);
   }
 
-  disponse() async{
+
+  dispose() async{
     _peliculaId.close();
     await _trailers.drain();
     _trailers.close();

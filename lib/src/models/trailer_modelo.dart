@@ -27,7 +27,9 @@ class _Resultado{
   int _size;
   String _type;
 
-  _Result(result) {
+ 
+
+  _Resultado(result) {
     _id = result['id'];
     _iso_639_1 = result['iso_639_1'];
     _iso_3166_1 = result['iso_3166_1'];
