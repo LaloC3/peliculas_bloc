@@ -3,6 +3,7 @@ import 'package:peliculas/src/blocs/pelicula_detalle_bloc_proveedor.dart';
 import 'package:peliculas/src/ui/detalles_peliculas.dart'; 
 import '../models/objeto_modelo.dart';
 import '../blocs/peliculas_bloc.dart';
+import 'detalles_peliculas.dart';
 
 
 
@@ -65,11 +66,12 @@ class _ListaPeliculasState extends State<ListaPeliculas> {
                     .resultados[index].directorio_poster}',
                 fit: BoxFit.cover,
               ),
-              onTap: abrirDetallesPagina(snapshot.data, index),
+              onTap: () => abrirDetallesPagina(snapshot.data, index),
             ),
           );
         });
   }
+
   abrirDetallesPagina(ObjetoModelo data, int index){
     Navigator.push(
       context,

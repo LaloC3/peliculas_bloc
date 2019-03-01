@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:peliculas/src/models/trailer_modelo.dart';
-
 import 'pelicula_api_proveedor.dart';
 import '../models/objeto_modelo.dart';
 

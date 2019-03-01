@@ -4,12 +4,12 @@ import 'package:rxdart/rxdart.dart';
 
 class PeliculasBloc{
 final _repositorio = Repositorio();
-final _peliculasObtener =PublishSubject<ObjetoModelo>();
+final _peliculasObtener = PublishSubject<ObjetoModelo>();
 
 Observable<ObjetoModelo> get todasPeliculas => _peliculasObtener.stream;
 
 obtenerTodasPeliculas()async{
-  ObjetoModelo objetoModelo =await _repositorio.obtenerTodasPeliculas();
+  ObjetoModelo objetoModelo = await _repositorio.obtenerTodasPeliculas();
   _peliculasObtener.sink.add(objetoModelo);
 }
 
@@ -19,4 +19,4 @@ dispose(){
 
 }
 
-final bloc =PeliculasBloc();
+final bloc = PeliculasBloc();
