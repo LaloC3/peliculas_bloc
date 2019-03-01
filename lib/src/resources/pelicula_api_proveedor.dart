@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' show Client;
 import '../models/objeto_modelo.dart';
+import '../models/trailer_modelo.dart';
 
 class PeliculaProveedor {
   Client cliente = Client();
@@ -14,6 +15,16 @@ class PeliculaProveedor {
       return ObjetoModelo.fromJson(json.decode(response.body));
     } else {
       throw Exception('Fallo al obtener los datos');
+    }
+  }
+
+  Future<TrailerModelo> obtenerTrailer(int peliculaId) async{
+    final reponse =await cliente.get("$_baseUrl/$peliculaId/videos?api_key=$_apiKey");
+
+    if (reponse.statusCode == 200){
+      return TrailerModelo.fromJson(json.decode(reponse.body));
+    }else{
+      throw Exception('Fallo al cargar el trailer');
     }
   }
 }
